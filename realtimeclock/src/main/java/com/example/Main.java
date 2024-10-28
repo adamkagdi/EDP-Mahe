@@ -1,57 +1,39 @@
 package com.example;
-import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
+
+import javax.swing.*;
+import java.awt.*;
 import java.util.Calendar;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.Delayed;
 
-public class Main
-{
+public class Main {
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Current Time");
+        JLabel timeLabel = new JLabel();
+        timeLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        timeLabel.setFont(new Font("Arial", Font.BOLD, 48));
+        timeLabel.setForeground(Color.BLACK);
+        timeLabel.setBackground(Color.WHITE);
+        timeLabel.setOpaque(true);
 
-    Timer timer = new Timer();
+        frame.add(timeLabel);
+        frame.setSize(400, 200);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
 
-         timer.scheduleAtFixedRate(new TimerTask()
-         {
-            public void run()
-            {
-                Robot robbie;
-
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            public void run() {
                 int second, minute, hour;
                 Calendar date = Calendar.getInstance();
                 second = date.get(Calendar.SECOND);
                 minute = date.get(Calendar.MINUTE);
-                hour = date.get(Calendar.HOUR);
-                System.out.println("Current time is  " + hour + " : " + 
-                minute +" : " + second);
+                hour = date.get(Calendar.HOUR_OF_DAY); // Use HOUR_OF_DAY for 24-hour format
 
-                try
-                {
-                    robbie = new Robot();
-                    robbie.keyPress(KeyEvent.VK_ALT);
-                    robbie.keyPress(KeyEvent.VK_SHIFT);
-                    robbie.keyPress(KeyEvent.VK_Q);
-                    robbie.keyRelease(KeyEvent.VK_ALT);
-                    robbie.keyRelease(KeyEvent.VK_SHIFT);
-                    robbie.keyRelease(KeyEvent.VK_Q);
-                    robbie.keyPress(KeyEvent.VK_C);
-                    robbie.keyRelease(KeyEvent.VK_C);
-                    robbie.keyPress(KeyEvent.VK_SHIFT);
-                    robbie.keyPress(KeyEvent.VK_F10);
-                    robbie.keyPress(KeyEvent.VK_R);
-                    robbie.keyRelease(KeyEvent.VK_SHIFT);
-                    robbie.keyRelease(KeyEvent.VK_F10);
-                    robbie.keyRelease(KeyEvent.VK_R);
-                } catch (AWTException e)
-                {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
+                String currentTime = String.format("%02d : %02d : %02d", hour, minute, second);
+                timeLabel.setText(currentTime);
             }
-        }, 1 * 500, 1 * 500);
+        }, 0, 1000); // Update every second
     }
 }
