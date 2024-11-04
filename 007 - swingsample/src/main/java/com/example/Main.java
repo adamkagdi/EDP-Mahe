@@ -3,8 +3,8 @@ import javax.swing.*;
 import java.awt.*;
 
 // example 1
-
-/* public class Main {
+/* 
+ public class Main {
     public static void main(String[] args) {
         JFrame frame = new JFrame("My First GUI");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -13,10 +13,12 @@ import java.awt.*;
         frame.getContentPane().add(button); // Adds Button to content pane of frame
         frame.setVisible(true);
     }
-} */
+} 
+*/
 
 // example 2
-/* public class Main{
+/*
+ public class Main{
     public static void main(String args[]){
     JFrame frame = new JFrame("My First GUI");
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -25,8 +27,8 @@ import java.awt.*;
     frame.getContentPane().add(button1);
     frame.setVisible(true);
     }
-    } */
-
+    } 
+*/
 // example 3
 
 public class Main{
@@ -73,4 +75,4 @@ public class Main{
     ta);
     frame.setVisible(true);
     }
-    }
+    } 

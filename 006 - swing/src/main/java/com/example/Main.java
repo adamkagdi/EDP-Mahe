@@ -19,6 +19,6 @@ public class Main {
 		f.setContentPane(p);
 
 		// Showing the Frame
-		f.show();
+		f.setVisible(true);
     }
 }

@@ -1,12 +1,12 @@
 package com.qinstanceof;
 
-class MyClass{
-	//members of MyClass
+public class Main {
+    public static void main(String[] args) {
+        Test t = new Test();
+        System.out.println("t is instance of object : " + (t instanceof Object));
+    }
 }
 
-class Main{
-public static void main (String[] args){
-MyClass mc1 = new MyClass();
-System.out.println("mc 1 is an instance of object:" + (mc1.Instanceof Object));
-}
+class Test {
+    // Ensure this class is defined correctly
 }
